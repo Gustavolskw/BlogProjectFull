@@ -1,0 +1,21 @@
+
+@if(thread){
+    <section id="container-thread" class="container-thread d-flex" [ngClass]="onList ? 'half-container':''">
+        <div id="img-container" [ngClass]="onList ? 'half-img-container':''">
+            @if(thread.imagem){
+                <img src="{{apiUrl}}/threads/img/{{thread.imagem}}" [ngClass]="onList ? 'half-img':''" alt="Imagem refernete ao Thread">
+            }
+        </div>
+        <div class="w-100" id="content-container">
+            <div class="d-flex flex-column" id="title-description-cont">
+                <h4 class="text-center mx-auto" [ngClass]="onList ? 'half-header':''" [innerHTML]="getSanitizedContent(thread.titulo)" ></h4>
+                <div class="text-center" [ngClass]="onList ? 'half-sub-title':''" [innerHTML]="getSanitizedContent(thread.descricao)"></div>
+            </div>
+            <div class="d-flex" id="footer-cont" [ngClass]="onList ? 'half-footer-cont':''">
+                <p id="autor" [ngClass]="onList ? 'half-text-footer':''">Autor:{{thread.autor}}</p>
+                <button id="ver-mais-btn" [ngClass]="onList ? 'half-btn-footer':''" routerLink="/topicos/{{thread.id}}">Ver mais</button>
+                <p id="data" [ngClass]="onList ? 'half-text-footer':''">{{thread.dataCriacao}}</p>
+            </div>
+        </div>
+    </section>
+}

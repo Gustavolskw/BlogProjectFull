@@ -1,0 +1,53 @@
+#carouselExampleIndicators{
+  margin: 0 auto !important;
+  width: 48rem;
+}
+
+
+#img_carrossel {
+  margin: 0 auto;
+  height: 30rem;
+}
+
+
+@media(max-width: 1200px) {
+  #carouselExampleIndicators{
+    margin: 0 auto !important;
+    width: 32rem;
+  }
+
+
+  #img_carrossel {
+    margin: 0 auto;
+    height: 22rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #carouselExampleIndicators{
+    margin: 0 auto !important;
+    width: 26rem;
+  }
+
+
+  #img_carrossel {
+    margin: 0 auto;
+    height: 16rem;
+  }
+}
+
+
+@media (max-width: 400px) {
+  #carouselExampleIndicators{
+    margin: 0 auto !important;
+    width: 100%;
+  }
+
+
+  #img_carrossel {
+    margin: 0 auto;
+    height: 10rem;
+  }
+}
+
+

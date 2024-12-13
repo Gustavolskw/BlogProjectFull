@@ -1,0 +1,38 @@
+<section class="bg-black py-3 align-items-center">
+    <h2 class="text-center text-white mt-2 " id="sub-header">Ultimos Tópicos</h2>
+</section>
+<section id="sectionCarrossel" class="d-flex w-100 justify-content-center">
+    <app-carousel [filteredThreads]="filteredThreads"></app-carousel>
+</section>
+
+<app-filter-bar [isAhead]="true"></app-filter-bar>
+<section class="paginator-container">
+    @if(threads){
+        <p-paginator
+                class="paginator"
+                (onPageChange)="onPageChange($event)"
+                [first]="0"
+                [rows]="15"
+                [totalRecords]="threads.total"/>
+    }
+</section>
+
+<section id="threads-container" class="d-flex justify-content-center flex-column">
+    @for(thread of threads?.dados; track thread.id){
+        <app-thread-container [thread]="thread"></app-thread-container>
+    }
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

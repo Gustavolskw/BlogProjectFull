@@ -1,0 +1,40 @@
+<section class="my-3 mx-4">
+    <section id="show-container" class="" >
+        <div id="container-thread-content" class="d-flex h-100 py-5 px-4" [ngClass]=" !descricao && !titulo ? 'blurOnCreating':'' ">
+            @if(descricao || titulo){
+                @if(image){
+                    <img class="img-thread" src="{{image}}" width="600" height="400"  alt="Imagem do Tópicos">
+                } @else {
+                    <img class="img-thread" srcset="imagePlaceholder.png" width="600" height="400"  alt="Imagem placeholder">
+                }
+            }
+            <div class="d-flex flex-column align-content-center w-100">
+                <div id="container-tit-desc-thread" class="d-flex flex-column align-content-center">
+                    <h3 id="thread-titulo" class="text-center fw-bold text-white" [innerHTML]="sanitizeHtml(titulo)"></h3>
+                    <div id="thread-descricao" class="w-100 text-center mt-4 text-white" [innerHTML]="sanitizeHtml(descricao)"></div>
+                </div>
+
+                <div class="px-4 d-flex justify-content-evenly">
+
+                    @if(descricao && titulo){
+                        <p class="text-white">Criado por: {{user?.name}}</p>
+                        <p class="text-white">Data: {{ dataCriacao | date:'dd/MM/yyyy' }}</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="form-container" class="mx-4 my-4">
+        <form id="form-thread" class="row">
+            <div class="d-flex flex-column col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-10">
+                <label for="titulo">Titulo:</label>
+                <input  type="text" name="titulo" id="titulo" class="form-control" [(ngModel)]="titulo">
+            </div>
+            <div class="d-flex flex-column col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-8 col-sm-12">
+                <label>Descrição:</label>
+                <textarea class="form-control" [(ngModel)]="descricao" [ngModelOptions]="{standalone: true}"></textarea>
+            </div>
+        </form>
+    </section>
+</section>

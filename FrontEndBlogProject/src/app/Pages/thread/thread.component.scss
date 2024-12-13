@@ -1,0 +1,59 @@
+
+#container-main{
+
+  border:2px solid #4b4b4b;
+
+
+}
+
+
+#container-thread-content{
+
+}
+
+#thread-titulo{
+  font-size: 2.2rem;
+  color: rgb(35, 199, 0);
+}
+#container-tit-desc-thread{
+  height:90%;
+}
+#thread-descricao{
+  padding: 0 2rem;
+  color:white;
+  font-size: 1.4rem;
+
+}
+#thread-image{
+
+}
+
+
+#cont-web-sites{
+
+  #yt-icon{
+    color:red
+  }
+  #ig-icon{
+    color: rgba(255, 94, 207, 0.9);
+  }
+  #fb-icon{
+    color: #0081ff;
+  }
+
+  a:hover{
+    text-shadow: 0 0 5px #ffffff;
+  }
+
+
+}
+
+
+
+
+@media(max-width: 768px){
+  #thread-image{
+    width:100%;
+    height:100%
+  }
+}

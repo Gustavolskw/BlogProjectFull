@@ -1,0 +1,74 @@
+<section class="my-5 py-5 px-5 ">
+    @if (thread) {
+        <section id="container-main" class="w-100 py-5 px-5 ">
+
+            <div id="container-thread-content" class="d-flex w-100">
+                <img id="thread-image" width="600" height="400" [ngSrc]="imgUrlApi+thread.imagem"  alt="Imagem do Tópicos" priority>
+                <div class="d-flex flex-column align-content-center w-100">
+                    <div id="container-tit-desc-thread" class="d-flex flex-column align-content-center">
+                        <h3 id="thread-titulo" class="text-center fw-bold">{{thread.titulo}}</h3>
+                        <div id="thread-descricao" class="w-100 text-center mt-4" [innerHTML]="sanitizeHtml(thread.descricao)"></div>
+                    </div>
+
+                    <div class="px-4 d-flex justify-content-evenly">
+                        <p class="text-white">Criado por: {{thread.autor}}</p>
+                        <p class="text-white">Data: {{ thread?.dataCriacao | date:'dd/MM/yyyy' }}</p>
+
+                    </div>
+                </div>
+                <div id="cont-web-sites" class="d-flex flex-column justify-content-evenly">
+                    <a id="yt-icon" href="https://www.youtube.com/@MusicBoxJoinville" class="text-decoration-none"><i class="bi bi-youtube fs-3 "></i></a>
+                    <a id="ig-icon" href="https://instagram.com/musicboxjoinville" class="text-decoration-none"><i class="bi bi-instagram fs-3 "></i></a>
+                    <a id="fb-icon" href="https://facebook.com/musicboxlives" class="text-decoration-none"><i class="bi bi-facebook fs-3 "></i></a>
+                </div>
+            </div>
+            @if(posts){
+                <article id="posts">
+                    @for (post of posts; track post.id){
+                        <div class="border border-light border-1 rounded">
+                            <div>
+                                <h4 id="post-titulo" [innerHTML]="sanitizeHtml(post.titulo)"></h4>
+                                <p id="post-descricao" [innerHTML]="sanitizeHtml(post.conteudo)"></p>
+                            </div>
+                            <!--                            @if(post.imagens != []){-->
+                            <!--                                <div>-->
+                            <!--                                    @for (image of post.imagens; track image.image_url){-->
+                            <!--                                        <img [ngSrc]="">-->
+                            <!--                                    }-->
+                            <!--                                </div>-->
+                            <!--                            }-->
+                            <div id="post-container-dados">
+
+                            </div>
+                        </div>
+                    }
+                </article>
+            }
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    } @else if (errorMessage) {
+        <div>
+            <h5 class="text-center text-danger fw-bold mt-5">{{errorMessage}}</h5>
+        </div>
+    }
+</section>

@@ -1,0 +1,18 @@
+<section id="sectionFilters" [ngClass]="isAhead ? 'margin-filter' :''">
+    <form class="col-12 col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-10 d-flex gap-5">
+        <div class="col-sm-8 col-md-5 col-xxl-4 col-xl-4 col-lg-4 mx-auto">
+            <label for="filtro">Filtro</label>
+            <div class="input-group flex-nowrap">
+                <input type="text" id="filtro" class="form-control" placeholder="Filtro de tópicos" aria-label="Filtro" aria-describedby="basic-addon1">
+                <span class="input-group-text bg-secondary-subtle" id="addon-wrapping"><i class="bi bi-search"></i></span>
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-5 col-xxl-4 col-xl-4 col-lg-4 mx-auto">
+            <label for="inputGroupSelect01">Ordem</label>
+            <select class="form-select" id="inputGroupSelect01">
+                <option selected value="1">Recentes</option>
+                <option value="2">Mais Antigos</option>
+            </select>
+        </div>
+    </form>
+</section>

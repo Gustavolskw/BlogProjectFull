@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-nav-bar ">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home"><img alt="Logo" class="logo-nav-bar" src="{{logoMainSrc}}"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2">
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="headerOpt ==1 ? 'underLineHeader' : '' " aria-current="page"
+                       routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="headerOpt ==2 ? 'underLineHeader' : '' " routerLink="/historia">Historia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/topicos" [ngClass]="headerOpt ==3 ? 'underLineHeader' : '' ">Tópicos</a>
+                </li>
+                @if(isLoggedIn && user && user.role>=2){
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/administracao" [ngClass]="headerOpt ==4 ? 'underLineHeader' : '' ">Administração</a>
+                </li>
+                }
+            </ul>
+            @if(isLoggedIn && user){
+                <div class="d-flex align-items-center gap-2">
+                    <div class="dropdown dropdown-menu-dark">
+                        <i
+                                class="bi bi-person-circle fs-2 dropdown-toggle"
+                                id="dropdownMenuButton"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                        ></i>
+                        <ul
+                                class="dropdown-menu dropdown-menu-start dropdown-menu-dark"
+                                aria-labelledby="dropdownMenuButton"
+                                data-bs-display="static"
+                        >
+                            <li>
+                                <a class="dropdown-item text-center my-auto" routerLink="/user/{{user.id}}"
+                                ><i class="bi bi-person-lines-fill fs-4 mx-2 text-white"></i>Perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a id="logout" class="dropdown-item text-center my-auto" (click)="logoutUser()"
+                                >Sair<i class="bi bi-box-arrow-right fs-4 mx-2 text-white"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="text-black fs-5 my-0 mx-1">{{ user.name }}</p>
+                </div>
+            } @else {
+                <div id="login-cont" class="d-flex align-items-center">
+                    <button class="btn-login" routerLink="/login">Login</button>
+                </div>
+            }
+        </div>
+    </div>
+</nav>

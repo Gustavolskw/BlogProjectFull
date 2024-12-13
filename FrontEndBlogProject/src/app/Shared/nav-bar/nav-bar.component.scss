@@ -1,0 +1,106 @@
+.logo-nav-bar{
+  max-width: 4rem;
+}
+.bg-nav-bar {
+  background-color: rgba(144, 144, 144, 0.5);
+}
+
+#logout{
+  cursor: pointer;
+}
+
+nav{
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  border-bottom:4px solid transparent;
+  animation: moveUnderNav 4s infinite ease-in-out;
+  div{
+    div{
+      padding:0  1rem;
+      i{
+        font-size: 2.5rem;
+        color:#000000A6;
+        cursor: pointer;
+      }
+      i:hover{
+        color: rgb(0, 0, 0);
+      }
+      #login-cont{
+        .btn-login{
+         background-color: #2fb900;
+          border:2px solid #001e93;
+          padding:0.5rem 1.5rem;
+          border-radius:10px;
+          font-weight: bold;
+        }
+        .btn-login:hover{
+          background: linear-gradient(45deg, #e5c600, #2fb900);
+          color:white;
+          box-shadow: 2px 2px 2px #090909;
+        }
+      }
+    }
+  }
+}
+
+.underLineHeader {
+  border-bottom: 4px solid transparent;
+  animation: moveUnderline 4s infinite ease-in-out;
+}
+@keyframes moveUnderline {
+  0% {
+    border-image: linear-gradient(45deg, #00d0ff, #000075, #000075, #00d0ff) 1;
+  }
+  25% {
+    border-image: linear-gradient(45deg, #00d0ff, #0033ff, #0033ff, #00d0ff) 1;
+  }
+  50% {
+    border-image: linear-gradient(45deg, #0033ff, #001ea9, #001ea9, #0033ff) 1;
+  }
+  75% {
+    border-image: linear-gradient(45deg, #001ea9, #000075, #000075, #001ea9) 1;
+  }
+  100% {
+    border-image: linear-gradient(45deg, #00d0ff, #000075, #000075, #00d0ff) 1;
+  }
+}
+
+@keyframes moveUnderNav {
+  0% {
+    border-image: linear-gradient(45deg, #047500, #11ff00, #047500, #11ff00) 1;
+  }
+  25% {
+    border-image: linear-gradient(45deg, #11ff00, #047500, #047500, #11ff00) 1;
+  }
+  50% {
+    border-image: linear-gradient(45deg, #047500, #047500, #11ff00, #11ff00) 1;
+  }
+  75% {
+    border-image: linear-gradient(45deg, #11ff00, #047500, #11ff00, #047500) 1;
+  }
+  100% {
+    border-image: linear-gradient(45deg, #047500, #11ff00, #047500, #11ff00) 1;
+  }
+}
+
+
+
+@media(max-width: 991px){
+  nav{
+    font-size: 1rem;
+    div{
+      div{
+        padding:0  0.1rem;
+        i{
+          font-size: 2.5rem;
+
+        }
+      }
+    }
+  }
+}
+
+.dropdown-toggle::after {
+  display: none;
+}

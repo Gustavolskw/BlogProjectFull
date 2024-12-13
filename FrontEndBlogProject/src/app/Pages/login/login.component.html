@@ -1,0 +1,45 @@
+
+<section class="d-flex flex-column">
+
+    <div class="box">
+        <form [formGroup]="loginForm">
+            <div class="input-box">
+                <h2>MusicBox Joinville</h2>
+                <input type="text" required formControlName="email">
+                <span>Email de acesso:</span>
+                <i></i>
+            </div>
+            @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+                @if (loginForm.get('email')?.hasError('required')) {
+                    <p class="text-invalid em-inv">Email é obrigatório.</p>
+                }
+                @if (loginForm.get('email')?.hasError('email')) {
+                    <p class="text-invalid em-inv">Formato de email inválido.</p>
+                }
+            }
+            <div class="input-box">
+                <input type="password" required formControlName="senha">
+                <span>Senha:</span>
+                <i></i>
+            </div>
+            @if (loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid) {
+                @if (loginForm.get('senha')?.hasError('required')) {
+                    <p class="text-invalid pwd-inv">Senha é obrigatório.</p>
+                }
+                @if (loginForm.get('senha')?.hasError('minLength')) {
+                    <p class="text-invalid pwd-inv">Tamanho minimo não atingido.</p>
+                }
+            }
+            <input type="submit" value="Login" (click)="onLogin()">
+            <div class="links">
+                <a href="#">Esqueceu a senha?</a>
+                <a href="#">Sign Up</a>
+            </div>
+        </form>
+    </div>
+    <div id="return-btn-cont">
+        <button routerLink="/home"><i class="bi bi-box-arrow-in-left"></i>Voltar</button>
+    </div>
+</section>
+
+<!--[disabled]="loginForm.invalid"-->

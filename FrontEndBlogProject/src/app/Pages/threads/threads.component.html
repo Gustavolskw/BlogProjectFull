@@ -1,0 +1,27 @@
+@if(user && user.role >1){
+    <section class="d-flex justify-content-center my-3">
+        <button class="btn-add-topico" routerLink="/topicos/add">Adicionar Tópico<i class="bi bi-plus-circle"></i></button>
+    </section>
+}
+
+<app-filter-bar id="filterBar" [isAhead]="!!(user && user.role>1)"></app-filter-bar>
+<div class="d-flex justify-content-center p-0 m-0">
+
+
+<section id="threads-container" class="col-12 row justify-content-center">
+    @for(thread of threads?.dados; track thread.id){
+        <app-thread-container [thread]="thread" [ngClass]="onlist?'col-xxl-5 col-xl-5 col-lg-8 col-md-8 col-sm-10 col-12':''" [onList]="onlist"></app-thread-container>
+    }
+</section>
+</div>
+<section class="paginator-container">
+    @if(threads){
+        <p-paginator
+                class="paginator"
+                (onPageChange)="onPageChange($event)"
+                [first]="0"
+                [rows]="15"
+                [totalRecords]="threads.total"/>
+    }
+</section>
+
